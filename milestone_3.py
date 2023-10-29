@@ -26,7 +26,7 @@ def ask_for_input():
             check_guess(guess)
             break
     
-
+## Calls the function to start the game.
 ask_for_input()
     
    
