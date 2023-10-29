@@ -6,28 +6,27 @@ word_list = ["apple", "banana", "orange", "blueberry", "fig"]
 ## Generates a random word from word_list
 word = random.choice(word_list)
 
-## Takes user input and checks if it is a single letter and is alphabetical.
-## guess = input("Please choose a letter: ")
-
-##while True:
-   ## if guess in word: 
-       ## print("Good guess - that letter is in the word!\n")
-        ##guess = input("Please choose your next letter: ")
-    ##elif guess not in word:
-       ## print("That's a good guess, but not in this word.\n")
-        ##guess = input("Please choose your next letter: ")
-    ##else:
-       ## if guess.isalpha() == False or len(guess) != 1:
-          ##  print("Oops! That is not a valid input.\n")
-           ## guess = input("Please choose a letter: ")
-
-while True:
-    guess = input("Please choose a letter: ")
-    if guess.isalpha() == False or len(guess) != 1:
-        print("Invalid letter. Please, enter a single alphabetical character.")
+## Converts the guess to lowercase and checks if it is in the word
+def check_guess(guess):
+    guess_lower = guess.lower()
+    if guess_lower in word:
+        print(f"Good guess! {guess} is in the word.")
     else:
-        if guess in word:
-            print(f"Good guess! {guess} is in the word.")
+        print(f"Sorry, {guess} is not in the word. Try again.")
+
+## Takes user input and checks if it is a single letter and is alphabetical.
+def ask_for_input():
+    guess = input("Please choose a letter: ")
+    while True:
+        if guess.isalpha() == False or len(guess) != 1:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+            break
         else:
-            print(f"Sorry, {guess} is not in the word. Try again.")
-	
+            print("This is a valid guess.")
+            check_guess(guess)
+            break
+    
+
+ask_for_input()
+    
+   
