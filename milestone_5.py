@@ -39,6 +39,7 @@ class Hangman:
                     self.word_guessed[index] = guess
                     print(f"Good guess! {guess} is in the word.")
             self.num_letters -= 1
+            print(f"The word has {self.num_letters} letters remaining.") 
         else:
             self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
@@ -51,6 +52,7 @@ class Hangman:
         If it is valid it then calls the check_guess function which is checks if the letter is in the word
         and edits the scores appropriately.
         """
+        print(self.word_guessed)
         guess = input("Please choose a letter: ")
         while True:
             if not guess.isalpha() or len(guess) != 1:
@@ -80,9 +82,9 @@ def play_game(word_list):
     while game.num_lives > 0:
         play_again = game.ask_for_input()
         if game.num_letters == 0:
-            print("Congratulations. You won the game!")
+            print(f"Congratulations. The word was {game.word}. You won the game!")
             break
     else:
-        print("You lost!")
+        print(f"You lost! The word was {game.word}.")
 
 play_game(word_list)
