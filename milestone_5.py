@@ -1,9 +1,10 @@
 ## Imports random generator function
 import random
-
 word_list = ["apple", "banana", "orange", "blueberry", "fig"]
 
+
 class Hangman:
+    
     def __init__(self, word_list, num_lives = 5):
         """ 
         This function initialises the Hangman game class
@@ -66,8 +67,7 @@ class Hangman:
                 self.list_of_guessed.append(guess)
                 break
     
-  
-def play_game(word_list):
+  def play_game(word_list):
     """
     This function brings everything together so that the game of Hangman can be played.
     
